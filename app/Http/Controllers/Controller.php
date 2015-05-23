@@ -37,7 +37,7 @@ class Controller extends BaseController
 
         $this->current_lang = $id;
 
-        redirect()->back();
+        return redirect()->back();
 
     }
 
