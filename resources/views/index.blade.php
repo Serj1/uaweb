@@ -30,39 +30,54 @@
 
 @section('content')
     <div class="main-block__right">
-        <div class="slider">
-            <div class="main-slider">
-                <div class="item-slider">
-                    <div class="slide-title">
-                        <h3>Як оригінально носити<br>український одяг?</h3>
+        <div class="main-block__right">
+            <div class="slider">
+                <div class="main-slider" id="owl-demo" class="owl-carousel owl-theme">
+                    <div class="item item-slider">
+                        <div class="slide-title">
+                            <h3>Як оригінально носити<br>український одяг?</h3>
 
-                        <p>Український одяг має свою аутентичність.</p>
+                            <p>Український одяг має свою аутентичність.</p>
 
-                        <p>Яскраві кольори добре поєднуються із фактурою тканини.</p>
+                            <p>Яскраві кольори добре поєднуються із фактурою тканини.</p>
 
-                        <p>Завдяки цьому, одяг можна носити багатьма способами.</p>
-                        <a href="#" class="slide-button">Детальніше</a>
+                            <p>Завдяки цьому, одяг можна носити багатьма способами.</p>
+                            <a href="#" class="slide-button">Детальніше</a>
+                        </div>
+                        <div class="slide-image">
+                            <img src="images/woman.png" height="350" width="286" alt="">
+                        </div>
+                        <div class="clear"></div>
                     </div>
-                    <div class="slide-image">
-                        <img src="images/woman.png" height="350" width="286" alt="">
-                    </div>
-                    <div class="clear"></div>
-                </div>
-                <div class="clear"></div>
-                <div class="control-slider">
-                    <div class="nav-slider">
-                        <span class="nav-prev"></span>
-                        <span class="nav-next"></span>
-                    </div>
-                    <div class="dots">
-                        <span class="dots-active"></span>
-                        <span class="item-dots"></span>
-                        <span class="item-dots"></span>
-                        <span class="item-dots"></span>
+                    <div class="item item-slider">
+                        <div class="slide-title">
+                            <h3>Як оригінально носити<br>український одяг?</h3>
+
+                            <p>Український одяг має свою аутентичність.</p>
+
+                            <p>Яскраві кольори добре поєднуються із фактурою тканини.</p>
+
+                            <p>Завдяки цьому, одяг можна носити багатьма способами.</p>
+                            <a href="#" class="slide-button">Детальніше</a>
+                        </div>
+                        <div class="slide-image">
+                            <img src="images/woman.png" height="350" width="286" alt="">
+                        </div>
+                        <div class="clear"></div>
                     </div>
                 </div>
             </div>
-        </div>
+            <script>
+                $(document).ready(function () {
+                    var owl = $("#owl-demo");
+                    owl.owlCarousel({
+                        navigation: true,
+                        singleItem: true,
+                        transitionStyle: "fade",
+                        navigationText: false
+                    });
+                });
+            </script>
 
         <div class="popular-products">
             <div class="block-title">

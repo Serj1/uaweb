@@ -77,7 +77,6 @@
 	color: #000;
 	border-bottom: 3px solid #2980b9;
 }
-
 .product_day_and_nav {
     position: absolute;
 }
@@ -416,6 +415,7 @@ input[name="search"] {
 	width: 100%;
 	position: relative;
 	margin-top: 15px;
+    overflow-x: hidden;
 }
 .main-slider {
 	width: 100%;
@@ -476,6 +476,9 @@ input[name="search"] {
 }
 .slide-image {
 	float: right;
+    max-width: 300px;
+    max-height: 350px;
+    overflow: hidden;
 }
 
 /*----------------Popular products------------------*/
@@ -486,7 +489,6 @@ input[name="search"] {
 .navigate-block {
 	float: right;
 }
-
 .navigate-block a {
     font-size: 18px;
     color: #2980b9;
@@ -552,6 +554,18 @@ input[name="search"] {
 .carusel-products {
 	width: 100%;
 }
+
+.over_product {
+    width: 255px;
+    padding: 20px 0;
+    border-top: 4px solid #FFC000;
+    float: left;
+    margin-left: 30px;
+}
+
+.over_product:first-child {
+    margin-left: 0px;
+}
 .item-products {
 	width: 255px;
 	float: left;
@@ -567,7 +581,6 @@ input[name="search"] {
 	background-color: #ffd967
 }
 .carusel-products .item-products {
-	margin-left: 30px;
 	margin-top: 0;
 	margin-bottom: 0;
 }
@@ -588,6 +601,7 @@ input[name="search"] {
     right: 13px;
     background-image: url(../images/star-no-active.png);
     background-repeat: no-repeat;
+    cursor: pointer;
 }
 
 .favorite-active {
@@ -598,12 +612,14 @@ input[name="search"] {
     right: 13px;
     background-image: url(../images/star-active.png);
     background-repeat: no-repeat;
+    cursor: pointer;
 }
 
 .item-products .products-image img{
 	margin: 0 auto;
     width: auto;
     max-width: 100%;
+    height: 200px;
 }
 .item-products .products-title {
 	text-align: center;
@@ -1544,7 +1560,6 @@ input[name="search"] {
     float: left;
     padding: 220px 0 0;
 }
-
 .main-block__right .txt_404 p {
     margin-bottom: 30px;
     font-size: 30px;
@@ -1552,15 +1567,84 @@ input[name="search"] {
     font-weight: 300;
     line-height: 1.2em;
 }
-
 .main-block__right .txt_404 a {
     color: #2980b9;
 }
 
 .main-block__right .txt_404 {
 }
-
 .main-block__right .image_404 {
     padding-top: 30px;
     float: right;
+}
+
+/*	Chhosen
+=============================*/
+.full_width {
+    width: 100%;
+    padding: 30px 0;
+}
+
+.full_width .full_width_title {
+    float: left;
+    margin-bottom: 50px;
+}
+
+.full_width_title .title {
+    display: inline-block;
+    font-size: 30px;
+    margin-right: 40px;
+    float: left;
+}
+
+.count_chose {
+    font-size: 16px;
+    padding-top: 11px;
+    float: right;
+}
+
+.full_width .button_control {
+    float: right;
+    margin-top: -30px;
+}
+
+.btn_control_chose {
+    display: inline-block;
+    margin-top: 33px;
+    padding: 11px 54px;
+    font-size: 14px;
+    color: #2980B9;
+    text-transform: uppercase;
+    font-weight: 400;
+    border: 2px solid #2980B9;
+    cursor: pointer;
+    -webkit-border-radius: 20px;
+    -khtml-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    border-radius: 20px;
+    -webkit-transition: background-color 0.8s;
+    -khtml-transition: background-color 0.8s;
+    -moz-transition: background-color 0.8s;
+    -ms-transition: background-color 0.8s;
+    -o-transition: background-color 0.8s;
+    transition: background-color 0.8s;
+}
+
+.btn_control_chose:hover {
+    text-decoration: none;
+    background-color: #2980B9;
+    color: #fff;
+}
+
+.marL {
+    margin-left: 0;
+}
+
+.full_content .item-products {
+    margin: 0;
+}
+
+.full_content .over_product {
+    margin-bottom: 30px;
 }
