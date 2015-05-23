@@ -28,6 +28,9 @@ $app->get('/blog/{id}', 'App\Http\Controllers\Site\ViewBlogController@view');
 
 $app->get('/page/{id}', 'App\Http\Controllers\Site\PageViewController@index');
 
+$app->get('/set-lang/{id}', 'App\Http\Controllers\Controller@setLang');
+$app->get('/set-city/{id}', 'App\Http\Controllers\Controller@setCity');
+
 
 //admin
 

@@ -1,5 +1,6 @@
 <?php namespace App\Http\Controllers;
 
+use App\Models\Cities;
 use App\Models\Lang;
 use Laravel\Lumen\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\DB;
@@ -19,6 +20,11 @@ class Controller extends BaseController
             $this->current_lang = $lang[0]->id;
         }
 
+        if (!$this->current_city) {
+            $city = Cities::orderBy(DB::raw('RAND()'))->take(1)->get();
+            $this->current_city = $city[0]->id;
+        }
+
     }
 
     public function setLang($id)
@@ -33,6 +39,17 @@ class Controller extends BaseController
 
     }
 
+    public function setCity($id)
+    {
+        $city = Cities::find($id);
+
+        if (!$city) {
+            throw new Exception('City not found');
+        }
+
+        $this->current_city = $id;
+
+    }
 
 
 }

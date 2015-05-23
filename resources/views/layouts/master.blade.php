@@ -70,11 +70,12 @@
 
                     <p class="title-text title-text_yellow">Вам залишилося обрати те, що дійсно до вподоби</p>
                 </div>
-                <div class="select-city">
+                <div class="select-city" style="margin-left: -100px;">
                     <ul class="menu-city">
                         @foreach($cities as $city)
-                            <li class="@if(isset($item['selected'])) item-city @else hidden-city @endif "><a
-                                        href="{{url('select-city/'.$city['id'])}}">{{$city['title']}}</a></li>
+                            <li @if($current_city == $city->id) class="item-city" @else class="hidden-city"@endif>
+                                <a href="{{url('set-city/'.$city->id)}}" style="color: #000000;">{{$city->title}}</a>
+                            </li>
                         @endforeach
                     </ul>
                 </div>
@@ -82,9 +83,8 @@
                     <ul class="menu-lang">
 
                         @foreach($langs as $lang)
-
                             <li @if($current_lang == $lang->id) class="item-lang" @else class="hidden-lang" @endif>
-                                <a href="#">
+                                <a href="{{url('/set-lang/'.$lang->id)}}">
                                     <img src="/images/ukraine.png" height="20" width="29" alt="">
                                 </a>
                                 {{$lang->lang}}

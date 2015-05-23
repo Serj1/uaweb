@@ -40,7 +40,8 @@ class MainController extends Controller
             'brands' => $brands->toArray(),
             'productToDay' => ($productToDay) ? $productToDay[0] : null,
             'footerMenu' => $footerMenu,
-            'current_lang' => $this->current_lang
+            'current_lang' => $this->current_lang,
+            'current_city' => $this->current_city
         ];
 
         return view('index', $return);
