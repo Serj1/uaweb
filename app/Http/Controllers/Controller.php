@@ -12,16 +12,15 @@ class Controller extends BaseController
 
     public $current_city = null;
 
-    public function __construct()
+    public function setDefault()
     {
-        if (!$this->current_lang) {
 
+        if (!$this->current_lang) {
             $lang = Lang::where('default', '=', 1)->take(1)->get();
 
             if (!$lang) {
                 $lang = Lang::orderBy(DB::raw('RAND()'))->take(1)->get();
             }
-
 
             $this->current_lang = $lang[0]->id;
         }
@@ -35,7 +34,6 @@ class Controller extends BaseController
 
             $this->current_city = $city[0]->id;
         }
-
     }
 
     public function setLang($id)

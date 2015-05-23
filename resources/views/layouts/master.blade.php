@@ -4,16 +4,16 @@
     <meta charset="UTF-8">
     <title>Home</title>
 
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/owl.carousel.css">
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/owl.carousel.css">
     <!-- IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <![endif]-->
 
-    <script src='js/jquery-1.9.1.min.js'></script>
-    <script src='js/owl.carousel.min.js'></script>
+    <script src='/js/jquery-1.9.1.min.js'></script>
+    <script src='/js/owl.carousel.min.js'></script>
 
     <!-- IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>

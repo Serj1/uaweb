@@ -14,6 +14,8 @@ class MainController extends Controller
 
     public function index()
     {
+        $this->setDefault();
+
         $menu = Categories::buildMenu();
 
         $blog_posts = Blog::all()->take(3);
