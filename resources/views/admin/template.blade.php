@@ -37,6 +37,9 @@
                 </ul>
 
                 <ul class="nav navbar-nav">
+                    <li><a href="/admin/settings">Налаштування</a></li>
+                </ul>
+                <ul class="nav navbar-nav">
                     <li><a href="/admin/cities">Міста</a></li>
                 </ul>
 

@@ -47,6 +47,10 @@ class ViewBlogController extends Controller
 
         $item = Blog::find($id);
 
+        if (!$item) {
+            abort('404');
+        }
+
         $footerMenu = SettingsFooterMenu::buildMenu();
 
         $cities = Cities::all();
