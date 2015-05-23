@@ -165,6 +165,21 @@ $app->group(['middleware' => 'auth'], function ($app) {
 
     $app->get('/admin/cities/delete/{id}', 'App\Http\Controllers\Cities\CitiesController@destroy');
 
+    //langs
+
+    $app->get('/admin/langs', 'App\Http\Controllers\Langs\LangController@index');
+
+    $app->get('/admin/langs/create', 'App\Http\Controllers\Langs\LangController@create');
+
+    $app->get('/admin/langs/edit/{id}', 'App\Http\Controllers\Langs\LangController@edit');
+
+    $app->post('/admin/langs/store', 'App\Http\Controllers\Langs\LangController@store');
+
+    $app->post('/admin/langs/update', 'App\Http\Controllers\Langs\LangController@update');
+
+    $app->get('/admin/langs/delete/{id}', 'App\Http\Controllers\Langs\LangController@destroy');
+
+
 
 });
 

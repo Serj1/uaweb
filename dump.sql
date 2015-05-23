@@ -30,7 +30,7 @@ CREATE TABLE IF NOT EXISTS `blog` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- Dumping data for table mydb.blog: ~4 rows (approximately)
+-- Dumping data for table mydb.blog: ~3 rows (approximately)
 DELETE FROM `blog`;
 /*!40000 ALTER TABLE `blog` DISABLE KEYS */;
 INSERT INTO `blog` (`id`, `title`, `description`, `body`, `user_id`, `count_comments`, `created_at`, `updated_at`) VALUES
@@ -130,13 +130,14 @@ CREATE TABLE IF NOT EXISTS `cities` (
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
--- Dumping data for table mydb.cities: ~1 rows (approximately)
+-- Dumping data for table mydb.cities: ~2 rows (approximately)
 DELETE FROM `cities`;
 /*!40000 ALTER TABLE `cities` DISABLE KEYS */;
 INSERT INTO `cities` (`id`, `title`, `created_at`, `updated_at`) VALUES
-	(2, 'Київ', '2015-05-23 14:38:42', '2015-05-23 14:38:42');
+	(2, 'Київ', '2015-05-23 14:38:42', '2015-05-23 14:38:42'),
+	(3, 'Львів', '2015-05-23 14:48:58', '2015-05-23 14:48:58');
 /*!40000 ALTER TABLE `cities` ENABLE KEYS */;
 
 
@@ -161,6 +162,25 @@ DELETE FROM `cms_users`;
 INSERT INTO `cms_users` (`id`, `name`, `login`, `email`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
 	(2, 'Admin', 'Admin', 'test1@e.com', '$2y$10$AhhqfnfHKyyfrlsxSOhOt.nuZ4KHbuernVn1n1B/0IqUQ38l2BpEe', 'zBAbGS7cyCprUnzxjANUDLAHZXZRQtzZdM8L3HCnZhAqGaCOoNzannkmVdX1', '2015-04-19 19:39:02', '2015-04-19 20:11:48');
 /*!40000 ALTER TABLE `cms_users` ENABLE KEYS */;
+
+
+-- Dumping structure for table mydb.langs
+DROP TABLE IF EXISTS `langs`;
+CREATE TABLE IF NOT EXISTS `langs` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `lang` varchar(255) CHARACTER SET utf8 NOT NULL DEFAULT '0',
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+-- Dumping data for table mydb.langs: ~0 rows (approximately)
+DELETE FROM `langs`;
+/*!40000 ALTER TABLE `langs` DISABLE KEYS */;
+INSERT INTO `langs` (`id`, `lang`, `created_at`, `updated_at`) VALUES
+	(1, 'Українська', '2015-05-23 15:34:44', '2015-05-23 15:44:21'),
+	(2, 'English', '2015-05-23 15:44:35', '2015-05-23 15:44:35');
+/*!40000 ALTER TABLE `langs` ENABLE KEYS */;
 
 
 -- Dumping structure for table mydb.migrations
@@ -210,7 +230,7 @@ CREATE TABLE IF NOT EXISTS `products` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- Dumping data for table mydb.products: ~9 rows (approximately)
+-- Dumping data for table mydb.products: ~10 rows (approximately)
 DELETE FROM `products`;
 /*!40000 ALTER TABLE `products` DISABLE KEYS */;
 INSERT INTO `products` (`id`, `category_id`, `brand_id`, `title`, `price`, `description`, `created_at`, `updated_at`) VALUES

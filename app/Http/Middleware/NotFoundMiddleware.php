@@ -2,7 +2,8 @@
 
 use Closure;
 
-class ExampleMiddleware {
+class NotFoundMiddleware
+{
 
     /**
      * Handle an incoming request.
@@ -13,6 +14,12 @@ class ExampleMiddleware {
      */
     public function handle($request, Closure $next)
     {
+        try {
+            return parent::handle($request);
+        } catch (\Symfony\Component\HttpKernel\Exception\NotFoundHttpException $e) {
+            return response()->view('errors/not-found', [], 404);
+        }
+
         return $next($request);
     }
 

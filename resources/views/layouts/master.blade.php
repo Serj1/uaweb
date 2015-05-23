@@ -73,25 +73,23 @@
                 <div class="select-city">
                     <ul class="menu-city">
                         @foreach($cities as $city)
-                            <li class="item-city"><a href="">{{$city['title']}}</a></li>
+                            <li class="@if(isset($item['selected'])) item-city @else hidden-city @endif "><a
+                                        href="{{url('select-city/'.$city['id'])}}">{{$city['title']}}</a></li>
                         @endforeach
-
-                        <li class="hidden-city"><a href="#">Київ</a></li>
-                        <li class="hidden-city"><a href="#">Львів</a></li>
                     </ul>
                 </div>
                 <div class="lang">
                     <ul class="menu-lang">
-                        <li class="item-lang">
-                            <a href="#">
-                                <img src="/images/ukraine.png" height="20" width="29" alt="">
-                            </a>
-                        </li>
-                        <li class="hidden-lang">
-                            <a href="#">
-                                <img src="/images/ukraine.png" height="20" width="29" alt="">
-                            </a>
-                        </li>
+
+                        @foreach($langs as $lang)
+
+                            <li @if($current_lang == $lang->id) class="item-lang" @else class="hidden-lang" @endif>
+                                <a href="#">
+                                    <img src="/images/ukraine.png" height="20" width="29" alt="">
+                                </a>
+                                {{$lang->lang}}
+                            </li>
+                        @endforeach
                     </ul>
                 </div>
                 <div class="clear"></div>
