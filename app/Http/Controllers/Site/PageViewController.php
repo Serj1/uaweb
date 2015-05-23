@@ -16,6 +16,10 @@ class PageViewController extends Controller
 
         $page = Page::find($id);
 
+        if (!$page) {
+            abort(404);
+        }
+
 
         $footerMenu = SettingsFooterMenu::buildMenu();
 
