@@ -1,8 +1,8 @@
 -- --------------------------------------------------------
 -- Host:                         127.0.0.1
--- Server version:               5.5.41-0ubuntu0.14.04.1 - (Ubuntu)
+-- Server version:               5.5.43-0ubuntu0.14.04.1 - (Ubuntu)
 -- Server OS:                    debian-linux-gnu
--- HeidiSQL Version:             9.1.0.4867
+-- HeidiSQL Version:             9.2.0.4947
 -- --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -30,7 +30,7 @@ CREATE TABLE IF NOT EXISTS `blog` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- Dumping data for table mydb.blog: ~3 rows (approximately)
+-- Dumping data for table mydb.blog: ~4 rows (approximately)
 DELETE FROM `blog`;
 /*!40000 ALTER TABLE `blog` DISABLE KEYS */;
 INSERT INTO `blog` (`id`, `title`, `description`, `body`, `user_id`, `count_comments`, `created_at`, `updated_at`) VALUES
@@ -122,6 +122,24 @@ INSERT INTO `categories` (`id`, `parent_id`, `lft`, `rgt`, `depth`, `title`, `cr
 /*!40000 ALTER TABLE `categories` ENABLE KEYS */;
 
 
+-- Dumping structure for table mydb.cities
+DROP TABLE IF EXISTS `cities`;
+CREATE TABLE IF NOT EXISTS `cities` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+-- Dumping data for table mydb.cities: ~1 rows (approximately)
+DELETE FROM `cities`;
+/*!40000 ALTER TABLE `cities` DISABLE KEYS */;
+INSERT INTO `cities` (`id`, `title`, `created_at`, `updated_at`) VALUES
+	(2, 'Київ', '2015-05-23 14:38:42', '2015-05-23 14:38:42');
+/*!40000 ALTER TABLE `cities` ENABLE KEYS */;
+
+
 -- Dumping structure for table mydb.cms_users
 DROP TABLE IF EXISTS `cms_users`;
 CREATE TABLE IF NOT EXISTS `cms_users` (
@@ -169,7 +187,7 @@ CREATE TABLE IF NOT EXISTS `pages` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- Dumping data for table mydb.pages: ~0 rows (approximately)
+-- Dumping data for table mydb.pages: ~2 rows (approximately)
 DELETE FROM `pages`;
 /*!40000 ALTER TABLE `pages` DISABLE KEYS */;
 INSERT INTO `pages` (`id`, `title`, `body`, `created_at`, `updated_at`) VALUES
@@ -192,7 +210,7 @@ CREATE TABLE IF NOT EXISTS `products` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- Dumping data for table mydb.products: ~10 rows (approximately)
+-- Dumping data for table mydb.products: ~9 rows (approximately)
 DELETE FROM `products`;
 /*!40000 ALTER TABLE `products` DISABLE KEYS */;
 INSERT INTO `products` (`id`, `category_id`, `brand_id`, `title`, `price`, `description`, `created_at`, `updated_at`) VALUES
@@ -221,7 +239,7 @@ CREATE TABLE IF NOT EXISTS `settings_footer_menu` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- Dumping data for table mydb.settings_footer_menu: ~0 rows (approximately)
+-- Dumping data for table mydb.settings_footer_menu: ~3 rows (approximately)
 DELETE FROM `settings_footer_menu`;
 /*!40000 ALTER TABLE `settings_footer_menu` DISABLE KEYS */;
 INSERT INTO `settings_footer_menu` (`id`, `title`, `page_id`, `order`, `url`, `created_at`, `updated_at`) VALUES

@@ -152,6 +152,19 @@ $app->group(['middleware' => 'auth'], function ($app) {
 
     $app->get('/admin/settings/footer/delete/{id}', 'App\Http\Controllers\Settings\FooterMenuController@destroy');
 
+    //cities
+    $app->get('/admin/cities', 'App\Http\Controllers\Cities\CitiesController@index');
+
+    $app->get('/admin/cities/create', 'App\Http\Controllers\Cities\CitiesController@create');
+
+    $app->get('/admin/cities/edit/{id}', 'App\Http\Controllers\Cities\CitiesController@edit');
+
+    $app->post('/admin/cities/store', 'App\Http\Controllers\Cities\CitiesController@store');
+
+    $app->post('/admin/cities/update', 'App\Http\Controllers\Cities\CitiesController@update');
+
+    $app->get('/admin/cities/delete/{id}', 'App\Http\Controllers\Cities\CitiesController@destroy');
+
 
 });
 

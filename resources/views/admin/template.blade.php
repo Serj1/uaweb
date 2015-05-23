@@ -37,7 +37,11 @@
                 </ul>
 
                 <ul class="nav navbar-nav">
-                    <li><a href="/admin/settings">Налаштування</a></li>
+                    <li><a href="/admin/cities">Міста</a></li>
+                </ul>
+
+                <ul class="nav navbar-nav">
+                    <li><a href="/admin/langs">Мови</a></li>
                 </ul>
 
 
