@@ -5,6 +5,7 @@ use App\Models\Categories;
 use App\Models\Blog;
 use App\Models\Products;
 use App\Models\Brands;
+use App\Models\Cities;
 use App\Models\SettingsFooterMenu;
 
 class MainController extends Controller
@@ -24,9 +25,13 @@ class MainController extends Controller
 
         $footerMenu = SettingsFooterMenu::buildMenu();
 
+        $cities = Cities::all();
+
+
         $return = [
             'menu' => $menu,
             'posts' => $blog_posts,
+            'cities' => $cities,
             'products' => $products->toArray(),
             'brands' => $brands->toArray(),
             'productToDay' => ($productToDay) ? $productToDay[0] : null,

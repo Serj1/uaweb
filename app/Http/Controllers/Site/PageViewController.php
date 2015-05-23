@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Controller;
 use App\Models\Categories;
+use App\Models\Cities;
 use App\Models\Page;
 use App\Models\SettingsFooterMenu;
 
@@ -14,6 +15,7 @@ class PageViewController extends Controller
         $menu = Categories::buildMenu();
 
         $page = Page::find($id);
+
 
         $footerMenu = SettingsFooterMenu::buildMenu();
 

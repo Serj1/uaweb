@@ -72,7 +72,10 @@
                 </div>
                 <div class="select-city">
                     <ul class="menu-city">
-                        <li class="item-city"><a href="#">Кам'янець-Подільський</a></li>
+                        @foreach($cities as $city)
+                            <li class="item-city"><a href="">{{$city['title']}}</a></li>
+                        @endforeach
+
                         <li class="hidden-city"><a href="#">Київ</a></li>
                         <li class="hidden-city"><a href="#">Львів</a></li>
                     </ul>
