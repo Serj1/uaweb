@@ -14,6 +14,10 @@ class ViewProductController extends Controller
 
         $item = Products::find($id);
 
+        if (!$item) {
+            abort(404);
+        }
+
         $footerMenu = SettingsFooterMenu::buildMenu();
 
         $return = [
