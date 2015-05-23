@@ -37,6 +37,8 @@ class Controller extends BaseController
 
         $this->current_lang = $id;
 
+        redirect()->back();
+
     }
 
     public function setCity($id)
@@ -49,6 +51,7 @@ class Controller extends BaseController
 
         $this->current_city = $id;
 
+        return redirect()->back();
     }
 
 

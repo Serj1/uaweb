@@ -70,7 +70,7 @@
 
                     <p class="title-text title-text_yellow">Вам залишилося обрати те, що дійсно до вподоби</p>
                 </div>
-                <div class="select-city" style="margin-left: -100px;">
+                <div class="select-city" style="padding-right: 60px;">
                     <ul class="menu-city">
                         @foreach($cities as $city)
                             <li @if($current_city == $city->id) class="item-city" @else class="hidden-city"@endif>
