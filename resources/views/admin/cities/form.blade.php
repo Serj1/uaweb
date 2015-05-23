@@ -44,6 +44,15 @@
                         </div>
                     </div>
 
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">Default</label>
+
+                        <div class="col-md-2">
+                            <input type="checkbox" name="default" @if(isset($item) && $item->default == 1)
+                                   value="on" checked @endif>
+                        </div>
+                    </div>
+
 
                     <div class="form-group">
                         <div class="col-md-6 col-md-offset-3">

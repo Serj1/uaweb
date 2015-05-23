@@ -17,7 +17,7 @@ class Cities extends Model
      *
      * @var array
      */
-    protected $fillable = ['title'];
+    protected $fillable = ['title', 'default'];
 
 
     public function toArray()

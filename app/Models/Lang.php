@@ -17,7 +17,7 @@ class Lang extends Model
      *
      * @var array
      */
-    protected $fillable = ['lang'];
+    protected $fillable = ['lang', 'default'];
 
 
     public function toArray()

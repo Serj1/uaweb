@@ -47,7 +47,8 @@ class CitiesController extends Controller
     public function store(Request $request)
     {
         $brand = Cities::create([
-            'title' => $request->input('title')
+            'title' => $request->input('title'),
+            'default' => ($request->input('default') == 'on') ? 1 : 0
         ]);
 
         $brand->save();
@@ -57,10 +58,11 @@ class CitiesController extends Controller
 
     public function update(Request $request)
     {
-        $brand = Cities::find($request->input('id'));
+        $city = Cities::find($request->input('id'));
+        $city->title = $request->input('title');
+        $city->default = ($request->input('default') == 'on') ? 1 : 0;
 
-        $brand->title = $request->input('title');
-        $brand->save();
+        $city->save();
 
         return redirect('admin/cities');
     }

@@ -14,14 +14,25 @@ class Controller extends BaseController
 
     public function __construct()
     {
-
         if (!$this->current_lang) {
-            $lang = Lang::orderBy(DB::raw('RAND()'))->take(1)->get();
+
+            $lang = Lang::where('default', '=', 1)->take(1)->get();
+
+            if (!$lang) {
+                $lang = Lang::orderBy(DB::raw('RAND()'))->take(1)->get();
+            }
+
+
             $this->current_lang = $lang[0]->id;
         }
 
         if (!$this->current_city) {
-            $city = Cities::orderBy(DB::raw('RAND()'))->take(1)->get();
+            $city = Cities::where('default', '=', 1)->take(1)->get();
+
+            if (!$city) {
+                $city = Cities::orderBy(DB::raw('RAND()'))->take(1)->get();
+            }
+
             $this->current_city = $city[0]->id;
         }
 

@@ -127,17 +127,19 @@ DROP TABLE IF EXISTS `cities`;
 CREATE TABLE IF NOT EXISTS `cities` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `title` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
+  `default` tinyint(1) DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
--- Dumping data for table mydb.cities: ~2 rows (approximately)
+-- Dumping data for table mydb.cities: ~3 rows (approximately)
 DELETE FROM `cities`;
 /*!40000 ALTER TABLE `cities` DISABLE KEYS */;
-INSERT INTO `cities` (`id`, `title`, `created_at`, `updated_at`) VALUES
-	(2, 'Київ', '2015-05-23 14:38:42', '2015-05-23 14:38:42'),
-	(3, 'Львів', '2015-05-23 14:48:58', '2015-05-23 14:48:58');
+INSERT INTO `cities` (`id`, `title`, `default`, `created_at`, `updated_at`) VALUES
+	(2, 'Київ', 0, '2015-05-23 14:38:42', '2015-05-23 18:25:54'),
+	(3, 'Львів', NULL, '2015-05-23 14:48:58', '2015-05-23 14:48:58'),
+	(4, 'jjj', 1, '2015-05-23 18:33:38', '2015-05-23 18:53:57');
 /*!40000 ALTER TABLE `cities` ENABLE KEYS */;
 
 
@@ -169,17 +171,18 @@ DROP TABLE IF EXISTS `langs`;
 CREATE TABLE IF NOT EXISTS `langs` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `lang` varchar(255) CHARACTER SET utf8 NOT NULL DEFAULT '0',
+  `default` tinyint(1) NOT NULL DEFAULT '0',
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
--- Dumping data for table mydb.langs: ~0 rows (approximately)
+-- Dumping data for table mydb.langs: ~2 rows (approximately)
 DELETE FROM `langs`;
 /*!40000 ALTER TABLE `langs` DISABLE KEYS */;
-INSERT INTO `langs` (`id`, `lang`, `created_at`, `updated_at`) VALUES
-	(1, 'Українська', '2015-05-23 15:34:44', '2015-05-23 15:44:21'),
-	(2, 'English', '2015-05-23 15:44:35', '2015-05-23 15:44:35');
+INSERT INTO `langs` (`id`, `lang`, `default`, `created_at`, `updated_at`) VALUES
+	(1, 'Українська', 0, '2015-05-23 15:34:44', '2015-05-23 15:44:21'),
+	(2, 'English', 1, '2015-05-23 15:44:35', '2015-05-23 18:57:53');
 /*!40000 ALTER TABLE `langs` ENABLE KEYS */;
 
 
@@ -205,14 +208,15 @@ CREATE TABLE IF NOT EXISTS `pages` (
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- Dumping data for table mydb.pages: ~2 rows (approximately)
+-- Dumping data for table mydb.pages: ~3 rows (approximately)
 DELETE FROM `pages`;
 /*!40000 ALTER TABLE `pages` DISABLE KEYS */;
 INSERT INTO `pages` (`id`, `title`, `body`, `created_at`, `updated_at`) VALUES
 	(1, 'Про нас', '<p style="text-align: justify; font-size: 11px; line-height: 14px; margin-bottom: 14px; color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus tincidunt suscipit dapibus. Quisque ultrices rutrum sollicitudin. Integer facilisis nibh in mauris volutpat, nec porta neque posuere. Proin sed euismod magna, eu aliquet magna. Curabitur maximus vestibulum molestie. Morbi ac ultrices ex. Sed interdum fermentum nisi quis pellentesque. Morbi eget magna vel augue porta placerat. Vestibulum a sem tempus, mollis dolor a, pulvinar sapien. Quisque accumsan scelerisque mauris. Ut ultricies dolor sed purus hendrerit cursus. Curabitur a felis viverra erat dignissim bibendum vel ut urna.</p><p style="text-align: justify; font-size: 11px; line-height: 14px; margin-bottom: 14px; color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans;">Proin ut sem sed tellus semper convallis. Pellentesque vulputate pharetra velit, in hendrerit metus scelerisque sed. Etiam eget nunc tellus. Nam suscipit sed orci id sollicitudin. Aliquam blandit aliquet hendrerit. Praesent gravida lobortis sagittis. Mauris a mattis nulla. Morbi vitae nisl non ante mollis rhoncus. Ut fermentum dignissim neque, nec consequat orci laoreet in. Vivamus metus mi, bibendum at risus sed, commodo venenatis massa. Donec dictum iaculis tortor quis scelerisque. Proin viverra luctus nisi, nec placerat magna feugiat sed. Sed lacinia tortor vel augue rhoncus, in volutpat lorem dictum. Mauris a lacus id nunc ullamcorper finibus vel vitae eros.</p><p style="text-align: justify; font-size: 11px; line-height: 14px; margin-bottom: 14px; color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans;">Nunc fermentum odio nisl, in varius orci mattis non. Nam a tincidunt nisi, at placerat orci. Quisque in iaculis dui. In eu tellus at augue vehicula suscipit in sit amet nunc. Vivamus ac vehicula orci, ut pellentesque quam. Vivamus dictum, ligula eget blandit vehicula, dolor nulla tincidunt sem, et luctus ipsum orci vel lectus. Aliquam accumsan vel nibh a tempus. Sed in faucibus dui, a viverra nisi. Ut commodo malesuada ligula, porta imperdiet purus malesuada in. Nullam nisi sapien, dapibus id lectus at, varius volutpat eros.</p><p style="text-align: justify; font-size: 11px; line-height: 14px; margin-bottom: 14px; color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans;">Suspendisse ullamcorper ante consequat facilisis hendrerit. Quisque interdum ultrices laoreet. Vivamus fringilla metus sapien, vitae pretium odio molestie in. Aenean mattis augue sit amet mattis commodo. Mauris porttitor feugiat leo, id mollis velit condimentum sit amet. Cras aliquet porttitor nulla, at dictum quam pulvinar non. Aliquam condimentum, lacus id bibendum mollis, neque leo cursus ipsum, tempus posuere urna nibh vitae ante. Donec tincidunt urna mi, non dignissim dolor feugiat et. Nulla risus arcu, mattis molestie ullamcorper eget, aliquam quis urna. Cras in erat eu sem pellentesque convallis. Integer nec auctor dui, varius mollis sem. Vivamus lobortis laoreet enim, a mattis lorem finibus sed. In vel suscipit metus. Suspendisse potenti. Mauris volutpat rhoncus molestie. Curabitur faucibus facilisis dapibus.</p><p style="text-align: justify; font-size: 11px; line-height: 14px; margin-bottom: 14px; color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans;">Mauris finibus tellus mi, ut ultrices tortor semper non. Nulla venenatis congue mi vel gravida. Nunc aliquet, arcu rutrum accumsan viverra, risus neque pellentesque libero, viverra pharetra dui nisl a dolor. Nullam fermentum arcu vel elit euismod porta. In a pretium est. Aliquam erat volutpat. Morbi nunc dui, tempus quis orci fringilla, viverra auctor nulla. Proin interdum nunc quam, in tempor&nbsp;<span id="sceditor-end-marker" class="sceditor-selection sceditor-ignore" style="line-height: 0; display: none;"> </span><span id="sceditor-start-marker" class="sceditor-selection sceditor-ignore" style="line-height: 0; display: none;"> </span></p>                                                            ', '2015-04-19 19:58:32', '2015-04-19 19:58:32'),
-	(2, 'Переваги', '<p style="text-align: justify; font-size: 11px; line-height: 14px; margin-bottom: 14px; color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus tincidunt suscipit dapibus. Quisque ultrices rutrum sollicitudin. Integer facilisis nibh in mauris volutpat, nec porta neque posuere. Proin sed euismod magna, eu aliquet magna. Curabitur maximus vestibulum molestie. Morbi ac ultrices ex. Sed interdum fermentum nisi quis pellentesque. Morbi eget magna vel augue porta placerat. Vestibulum a sem tempus, mollis dolor a, pulvinar sapien. Quisque accumsan scelerisque mauris. Ut ultricies dolor sed purus hendrerit cursus. Curabitur a felis viverra erat dignissim bibendum vel ut urna.</p><p style="text-align: justify; font-size: 11px; line-height: 14px; margin-bottom: 14px; color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans;">Proin ut sem sed tellus semper convallis. Pellentesque vulputate pharetra velit, in hendrerit metus scelerisque sed. Etiam eget nunc tellus. Nam suscipit sed orci id sollicitudin. Aliquam blandit aliquet hendrerit. Praesent gravida lobortis sagittis. Mauris a mattis nulla. Morbi vitae nisl non ante mollis rhoncus. Ut fermentum dignissim neque, nec consequat orci laoreet in. Vivamus metus mi, bibendum at risus sed, commodo venenatis massa. Donec dictum iaculis tortor quis scelerisque. Proin viverra luctus nisi, nec placerat magna feugiat sed. Sed lacinia tortor vel augue rhoncus, in volutpat lorem dictum. Mauris a lacus id nunc ullamcorper finibus vel vitae eros.</p><p style="text-align: justify; font-size: 11px; line-height: 14px; margin-bottom: 14px; color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans;">Nunc fermentum odio nisl, in varius orci mattis non. Nam a tincidunt nisi, at placerat orci. Quisque in iaculis dui. In eu tellus at augue vehicula suscipit in sit amet nunc. Vivamus ac vehicula orci, ut pellentesque quam. Vivamus dictum, ligula eget blandit vehicula, dolor nulla tincidunt sem, et luctus ipsum orci vel lectus. Aliquam accumsan vel nibh a tempus. Sed in faucibus dui, a viverra nisi. Ut commodo malesuada ligula, porta imperdiet purus malesuada in. Nullam nisi sapien, dapibus id lectus at, varius volutpat eros.</p><p style="text-align: justify; font-size: 11px; line-height: 14px; margin-bottom: 14px; color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans;">Suspendisse ullamcorper ante consequat facilisis hendrerit. Quisque interdum ultrices laoreet. Vivamus fringilla metus sapien, vitae pretium odio molestie in. Aenean mattis augue sit amet mattis commodo. Mauris porttitor feugiat leo, id mollis velit condimentum sit amet. Cras aliquet porttitor nulla, at dictum quam pulvinar non. Aliquam condimentum, lacus id bibendum mollis, neque leo cursus ipsum, tempus posuere urna nibh vitae ante. Donec tincidunt urna mi, non dignissim dolor feugiat et. Nulla risus arcu, mattis molestie ullamcorper eget, aliquam quis urna. Cras in erat eu sem pellentesque convallis. Integer nec auctor dui, varius mollis sem. Vivamus lobortis laoreet enim, a mattis lorem finibus sed. In vel suscipit metus. Suspendisse potenti. Mauris volutpat rhoncus molestie. Curabitur faucibus facilisis dapibus.</p><p style="text-align: justify; font-size: 11px; line-height: 14px; margin-bottom: 14px; color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans;">Mauris finibus tellus mi, ut ultrices tortor semper non. Nulla venenatis congue mi vel gravida. Nunc aliquet, arcu rutrum accumsan viverra, risus neque pellentesque libero, viverra pharetra dui nisl a dolor. Nullam fermentum arcu vel elit euismod porta. In a pretium est. Aliquam erat volutpat. Morbi nunc dui, tempus quis orci fringilla, viverra auctor nulla. Proin interdum nunc quam, in tempor&nbsp;<span id="sceditor-end-marker" class="sceditor-selection sceditor-ignore" style="line-height: 0; display: none;"> </span><span id="sceditor-start-marker" class="sceditor-selection sceditor-ignore" style="line-height: 0; display: none;"> </span></p>                                                            ', '2015-04-19 19:59:12', '2015-04-19 19:59:12');
+	(2, 'Переваги', '<p style="text-align: justify; font-size: 11px; line-height: 14px; margin-bottom: 14px; color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus tincidunt suscipit dapibus. Quisque ultrices rutrum sollicitudin. Integer facilisis nibh in mauris volutpat, nec porta neque posuere. Proin sed euismod magna, eu aliquet magna. Curabitur maximus vestibulum molestie. Morbi ac ultrices ex. Sed interdum fermentum nisi quis pellentesque. Morbi eget magna vel augue porta placerat. Vestibulum a sem tempus, mollis dolor a, pulvinar sapien. Quisque accumsan scelerisque mauris. Ut ultricies dolor sed purus hendrerit cursus. Curabitur a felis viverra erat dignissim bibendum vel ut urna.</p><p style="text-align: justify; font-size: 11px; line-height: 14px; margin-bottom: 14px; color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans;">Proin ut sem sed tellus semper convallis. Pellentesque vulputate pharetra velit, in hendrerit metus scelerisque sed. Etiam eget nunc tellus. Nam suscipit sed orci id sollicitudin. Aliquam blandit aliquet hendrerit. Praesent gravida lobortis sagittis. Mauris a mattis nulla. Morbi vitae nisl non ante mollis rhoncus. Ut fermentum dignissim neque, nec consequat orci laoreet in. Vivamus metus mi, bibendum at risus sed, commodo venenatis massa. Donec dictum iaculis tortor quis scelerisque. Proin viverra luctus nisi, nec placerat magna feugiat sed. Sed lacinia tortor vel augue rhoncus, in volutpat lorem dictum. Mauris a lacus id nunc ullamcorper finibus vel vitae eros.</p><p style="text-align: justify; font-size: 11px; line-height: 14px; margin-bottom: 14px; color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans;">Nunc fermentum odio nisl, in varius orci mattis non. Nam a tincidunt nisi, at placerat orci. Quisque in iaculis dui. In eu tellus at augue vehicula suscipit in sit amet nunc. Vivamus ac vehicula orci, ut pellentesque quam. Vivamus dictum, ligula eget blandit vehicula, dolor nulla tincidunt sem, et luctus ipsum orci vel lectus. Aliquam accumsan vel nibh a tempus. Sed in faucibus dui, a viverra nisi. Ut commodo malesuada ligula, porta imperdiet purus malesuada in. Nullam nisi sapien, dapibus id lectus at, varius volutpat eros.</p><p style="text-align: justify; font-size: 11px; line-height: 14px; margin-bottom: 14px; color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans;">Suspendisse ullamcorper ante consequat facilisis hendrerit. Quisque interdum ultrices laoreet. Vivamus fringilla metus sapien, vitae pretium odio molestie in. Aenean mattis augue sit amet mattis commodo. Mauris porttitor feugiat leo, id mollis velit condimentum sit amet. Cras aliquet porttitor nulla, at dictum quam pulvinar non. Aliquam condimentum, lacus id bibendum mollis, neque leo cursus ipsum, tempus posuere urna nibh vitae ante. Donec tincidunt urna mi, non dignissim dolor feugiat et. Nulla risus arcu, mattis molestie ullamcorper eget, aliquam quis urna. Cras in erat eu sem pellentesque convallis. Integer nec auctor dui, varius mollis sem. Vivamus lobortis laoreet enim, a mattis lorem finibus sed. In vel suscipit metus. Suspendisse potenti. Mauris volutpat rhoncus molestie. Curabitur faucibus facilisis dapibus.</p><p style="text-align: justify; font-size: 11px; line-height: 14px; margin-bottom: 14px; color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans;">Mauris finibus tellus mi, ut ultrices tortor semper non. Nulla venenatis congue mi vel gravida. Nunc aliquet, arcu rutrum accumsan viverra, risus neque pellentesque libero, viverra pharetra dui nisl a dolor. Nullam fermentum arcu vel elit euismod porta. In a pretium est. Aliquam erat volutpat. Morbi nunc dui, tempus quis orci fringilla, viverra auctor nulla. Proin interdum nunc quam, in tempor&nbsp;<span id="sceditor-end-marker" class="sceditor-selection sceditor-ignore" style="line-height: 0; display: none;"> </span><span id="sceditor-start-marker" class="sceditor-selection sceditor-ignore" style="line-height: 0; display: none;"> </span></p>                                                            ', '2015-04-19 19:59:12', '2015-04-19 19:59:12'),
+	(3, 'test', 'bla-bla-bla<span id="sceditor-end-marker" class="sceditor-selection sceditor-ignore" style="line-height: 0; display: none;"> </span><span id="sceditor-start-marker" class="sceditor-selection sceditor-ignore" style="line-height: 0; display: none;"> </span>                                                            ', '2015-05-23 17:58:32', '2015-05-23 17:58:32');
 /*!40000 ALTER TABLE `pages` ENABLE KEYS */;
 
 
@@ -257,15 +261,16 @@ CREATE TABLE IF NOT EXISTS `settings_footer_menu` (
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- Dumping data for table mydb.settings_footer_menu: ~3 rows (approximately)
+-- Dumping data for table mydb.settings_footer_menu: ~4 rows (approximately)
 DELETE FROM `settings_footer_menu`;
 /*!40000 ALTER TABLE `settings_footer_menu` DISABLE KEYS */;
 INSERT INTO `settings_footer_menu` (`id`, `title`, `page_id`, `order`, `url`, `created_at`, `updated_at`) VALUES
 	(1, 'Про нас', 1, 1, '', '2015-04-19 19:59:36', '2015-04-19 19:59:36'),
 	(2, 'Переваги', 2, 2, '', '2015-04-19 19:59:49', '2015-04-19 19:59:49'),
-	(3, 'Блог', 0, 3, '/blog', '2015-04-19 20:00:16', '2015-04-19 20:00:16');
+	(3, 'Блог', 0, 3, '/blog', '2015-04-19 20:00:16', '2015-04-19 20:00:16'),
+	(4, 'test', 3, 5, '', '2015-05-23 17:12:16', '2015-05-23 18:00:00');
 /*!40000 ALTER TABLE `settings_footer_menu` ENABLE KEYS */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;

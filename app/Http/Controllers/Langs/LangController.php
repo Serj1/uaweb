@@ -47,7 +47,8 @@ class LangController extends Controller
     public function store(Request $request)
     {
         $brand = Lang::create([
-            'lang' => $request->input('lang')
+            'lang' => $request->input('lang'),
+            'default' => ($request->input('default') == 'on') ? 1 : 0
         ]);
 
         $brand->save();
@@ -57,10 +58,11 @@ class LangController extends Controller
 
     public function update(Request $request)
     {
-        $brand = Lang::find($request->input('id'));
+        $lang = Lang::find($request->input('id'));
 
-        $brand->lang = $request->input('lang');
-        $brand->save();
+        $lang->lang = $request->input('lang');
+        $lang->default = ($request->input('default') == 'on') ? 1 : 0;
+        $lang->save();
 
         return redirect('admin/langs');
     }
