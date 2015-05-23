@@ -108,7 +108,7 @@
                 </div>
                 <div class="for-user">
                     <ul>
-                        <li class="sing-in"><a href="#">Вхід</a></li>
+                        <li class="sing-in"><a href="{{url('auth')}}">Вхід</a></li>
                         <li class="favorite"><a href="#">Вибране</a></li>
                     </ul>
                 </div>
