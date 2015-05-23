@@ -5,6 +5,9 @@ use App\Models\Products;
 use App\Models\Blog;
 use App\Models\Categories;
 use App\Models\SettingsFooterMenu;
+use App\Models\Brands;
+use App\Models\Cities;
+use App\Models\Lang;
 
 class ViewBlogController extends Controller
 {
@@ -15,12 +18,20 @@ class ViewBlogController extends Controller
 
         $items = Blog::all();
 
+        $cities = Cities::all();
+
+        $langs = Lang::all();
+
         $footerMenu = SettingsFooterMenu::buildMenu();
 
         $return = [
             'menu' => $menu,
             'items' => $items,
-            'footerMenu' => $footerMenu
+            'cities' => $cities,
+            'langs' => $langs,
+            'footerMenu' => $footerMenu,
+            'current_lang' => $this->current_lang,
+            'current_city' => $this->current_city
         ];
 
         return view('site.blog.list', $return);
@@ -38,11 +49,19 @@ class ViewBlogController extends Controller
 
         $footerMenu = SettingsFooterMenu::buildMenu();
 
+        $cities = Cities::all();
+
+        $langs = Lang::all();
+
         $return = [
             'menu' => $menu,
             'item' => $item,
+            'cities' => $cities,
+            'langs' => $langs,
             'posts' => $blog_posts,
-            'footerMenu' => $footerMenu
+            'footerMenu' => $footerMenu,
+            'current_lang' => $this->current_lang,
+            'current_city' => $this->current_city
         ];
 
         return view('site.blog.view', $return);

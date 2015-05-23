@@ -5,6 +5,8 @@ use App\Models\Categories;
 use App\Models\Cities;
 use App\Models\Page;
 use App\Models\SettingsFooterMenu;
+use App\Models\Brands;
+use App\Models\Lang;
 
 class PageViewController extends Controller
 {
@@ -16,6 +18,10 @@ class PageViewController extends Controller
 
         $page = Page::find($id);
 
+        $cities = Cities::all();
+
+        $langs = Lang::all();
+
         if (!$page) {
             abort(404);
         }
@@ -23,7 +29,9 @@ class PageViewController extends Controller
 
         $footerMenu = SettingsFooterMenu::buildMenu();
 
-        return view('site.page', ['item' => $page, 'menu' => $menu, 'footerMenu' => $footerMenu]);
+        return view('site.page', ['item' => $page, 'menu' => $menu, 'footerMenu' => $footerMenu, 'cities' => $cities,
+            'langs' => $langs, 'current_lang' => $this->current_lang,
+            'current_city' => $this->current_city]);
     }
 
 
